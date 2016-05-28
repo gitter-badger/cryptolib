@@ -10,11 +10,13 @@ struct GroestlContext {
     Data[L] ctx_h;
     Data[L] ctx_buf;
     size_t ctx_buf_p;
-    Data ctx_last_byte;
     size_t ctx_last_byte_size;
+    size_t ctx_block_count;
 };
 
 typedef unsigned char Data;
+
+typedef Data[SQRT_LBYTES][SQRT_LBYTES] Matrix;
 
 void init(GroestlContext*);
 
