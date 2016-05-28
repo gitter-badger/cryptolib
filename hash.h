@@ -1,5 +1,8 @@
-struct GroestlContext {
+#define L 512
+#define N 256
 
+struct GroestlContext {
+    Data[L] ctx_h;
 };
 
 typedef unsigned char Data;
