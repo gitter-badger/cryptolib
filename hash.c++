@@ -35,7 +35,7 @@ void init(GroestlContext *ctx) {
     }
 }
 
-void update(GroestlContext *ctx, Data *data) {
+void update(GroestlContext *ctx, const Data *data) {
     Data[L] P, Q;
     transform(data, P);
     transform(data, Q);
@@ -45,7 +45,7 @@ void update(GroestlContext *ctx, Data *data) {
     }
 }
 
-void transform(Data *data, Data[L] buf) {
+void transform(const Data *data, Data[L] buf) {
 
     Data[SQRT_LBYTES][SQRT_LBYTES] buffer;
 
@@ -64,7 +64,7 @@ void transform(Data *data, Data[L] buf) {
 
     for (size_t i = 0; i < sizeof(buffer); ++i) {
         for (size_t j = 0; j < sizeof(buffer*); ++j) {
-             data[i * sizeof(buffer*) + j] = buffer[j][i];
+             buf[i * sizeof(buffer*) + j] = buffer[j][i];
         }
     }
 }
